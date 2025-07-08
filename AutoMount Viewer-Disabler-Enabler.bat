@@ -2,7 +2,7 @@
 title AutoMount Viewer/Disabler/Enabler
 setlocal
 echo Program Name: AutoMount Viewer/Disabler/Enabler
-echo Version: 2.0.13
+echo Version: 2.1.0
 echo License: GNU General Public License v3.0
 echo Developer: @YonatanReuvenIsraeli
 echo GitHub: https://github.com/YonatanReuvenIsraeli
@@ -39,6 +39,10 @@ goto "AutoMount"
 
 :"AutoMount"
 if exist "diskpart.txt" goto "DiskPartExist"
+echo.
+if /i "%AutoMount%"=="1" echo Getting current auto-mount status.
+if /i "%AutoMount%"=="2" echo Disabling auto-mounting of new drives and clearing previous auto-mount points.
+if /i "%AutoMount%"=="3" echo Enabling auto-mounting of new drives.
 if /i "%AutoMount%"=="1" (echo automount) > "diskpart.txt"
 if /i "%AutoMount%"=="2" (echo automount disable) > "diskpart.txt"
 if /i "%AutoMount%"=="2" (echo automount scrub) >> "diskpart.txt"
@@ -47,6 +51,9 @@ if /i "%AutoMount%"=="3" (echo automount enable) > "diskpart.txt"
 "%windir%\System32\diskpart.exe" /s "diskpart.txt"
 if not "%errorlevel%"=="0" goto "DiskPartError"
 del "diskpart.txt" /f /q > nul 2>&1
+if /i "%AutoMount%"=="1" echo Got current auto-mount status.
+if /i "%AutoMount%"=="2" echo Disabled auto-mounting of new drives and cleared previous auto-mount points.
+if /i "%AutoMount%"=="3" echo Enabled auto-mounting of new drives.
 if /i "%DiskPart%"=="True" goto "DiskPartDone"
 goto "Start"
 
