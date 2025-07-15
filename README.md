@@ -1,5 +1,5 @@
 # AutoMount Viewer/Disabler/Enabler v2.1.1
-## View and/or disable and/or enable auto-mounting of new drives in Windows.
+View and/or disable and/or enable auto-mounting of new drives in Windows.
 
 ## Notes
 - Good for data recovery when PC fails to mount drive which causes Windows to crash. You can disable the auto-mounting of new drives and then access the drive with data recovery software and then enable it when done.
