@@ -1,4 +1,4 @@
-# AutoMount Viewer/Disabler/Enabler v2.1.1
+# AutoMount Viewer/Disabler/Enabler v2.1.2
 View and/or disable and/or enable auto-mounting of new drives in Windows.
 
 ## Notes
